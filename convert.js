@@ -1,3 +1,4 @@
+// https://janikvonrotz.ch/2020/09/03/convert-markdown-wiki-links-to-html-links/
 const convert = function (content) {
 
     // convert wiki image links
