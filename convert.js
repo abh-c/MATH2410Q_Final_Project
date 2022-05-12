@@ -26,7 +26,8 @@ const convert = function (content) {
         }
 
         // build the a-tag
-        content = content.replace(match, `<a href="/#/${href ? href : title}${anchor ? ('?id=' + anchor) : ''}">${title}</a>`)
+        // content = content.replace(match, `<a href="../${href ? href : title}${anchor ? ('?id=' + anchor) : ''}.html">${title}</a>`)
+        content = content.replace(match, `<a href="${href ? href : title}.html#${(anchor === undefined) ? "" : anchor}">${title}</a>`)
     }
 
     return content

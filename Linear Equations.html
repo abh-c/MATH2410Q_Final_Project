@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Linear Equations</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="../publish.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="Project/Unit2.html">⇦ Unit 2</a><br />
+<a href="Separable Equations.html#">⇦ Separable Equations</a>|<a href="Bernoulli Equations.html#">Bernoulli Equations ⇨</a></p>
+<h1 id="linear-equations">Linear Equations</h1>
+<p>Linear equations have the general form:</p>
+<p><span class="math display">\[a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} +
+\dots + a_1(x)y&#39; + a_0(x)y = b(x)\]</span></p>
+<p>First order linear ODEs have the form:</p>
+<p><span class="math display">\[a_1(x)y&#39; + a_0(x)y =
+b(x)\]</span></p>
+<p>and, since <span class="math inline">\(a_1(x) \ne 0\)</span> by
+definition, one can divide by <span
+class="math inline">\(a_1(x)\)</span> to simplify them into the
+form:</p>
+<p><span class="math display">\[y&#39; + P(x)y = f(x)\]</span></p>
+<p>The general strategy to solve first order linear equations is to
+multiply both sides with an <strong>integrating factor</strong> <span
+class="math inline">\(\mu(x)\)</span>.</p>
+<p><span class="math display">\[\mu(x) y&#39; + \mu(x)P(x)y =
+\mu(x)f(x)\]</span></p>
+<p>The integrating factor is chosen such that <span
+class="math inline">\(\mu(x)P(x) = \mu&#39;(x)\)</span>. For this to be
+true:</p>
+<p><span class="math display">\[\mu(x) = e^{\int P(x) \,
+dx}\]</span></p>
+<p>Note: You do not need to worry about adding a constant term for this
+integration because it should be able to be cancelled out after
+multiplying both sides of the equation by the integrating factor.</p>
+<p>This will lead to an expression of the form:</p>
+<p><span class="math display">\[\mu(x) y&#39; + \mu(x)&#39;y =
+\mu(x)f(x)\]</span></p>
+<p>Because the left side of the equation takes the form of the
+<strong>product rule</strong>, taking the integral of both sides results
+in an an equation of the form:</p>
+<p><span class="math display">\[\mu(x)y =
+\int\mu(x)f(x)\,dx\]</span></p>
+<p>At this point an explicit or implicit solution can be found.</p>
+<p><strong>Example:</strong> Solve the differential equation: <span
+class="math display">\[y&#39; + 10y = e^x\]</span></p>
+<p>This differential equation is a first order linear ODE in the form
+<span class="math inline">\(y&#39; + P(x)y = f(x)\)</span>, so it is
+possible to use an integrating factor to solve. First one should obtain
+the integrating factor:</p>
+<p><span class="math display">\[\mu(x) = e^{\int P(x) \,dx} =
+e^{\int10\,dx} = e^{10x}\]</span></p>
+<p>Then, multiply the integrating factor on both sides of the
+equation:</p>
+<p><span class="math display">\[e^{10x}y&#39;+10e^{10x}y =
+e^{10x}e^x\]</span></p>
+<p>Then, integrate both sides:</p>
+<p><span class="math display">\[\int e^{10x}y&#39;+10e^{10x}y \,dx= \int
+e^{11x}\, dx\]</span></p>
+<p><span class="math display">\[e^{10x}y = \frac{1}{11}e^{11x} +
+C\]</span></p>
+<p>The left side can be solved by reversing the product rule, and the
+right side can be integrated normally. At this point, a solution has
+been found:</p>
+<p><span class="math display">\[y =
+\frac{1}{11}e^x+Ce^{-10x}\]</span></p>
+<p><a href="Project/Unit2.html">⇦ Unit 2</a><br />
+<a href="Separable Equations.html#">⇦ Separable Equations</a>|<a href="Bernoulli Equations.html#">Bernoulli Equations ⇨</a></p>
+</body>
+</html>

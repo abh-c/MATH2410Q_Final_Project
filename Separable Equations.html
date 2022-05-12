@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Separable Equations</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="../publish.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="Project/Unit2.html">⇦ Unit 2</a>|<a href="../Linear Equations.html">Linear Equations ⇨</a></p>
+<h1 id="separable-equations">Separable Equations</h1>
+<p>Separable equations are first order ODEs where all the <span
+class="math inline">\(x\)</span> terms and <span
+class="math inline">\(y\)</span> terms can be separated to different
+sides of the equation, where they can then be integrated to find a
+solution. Separable equations can be written in the form:</p>
+<p><span class="math display">\[\frac{dy}{dx} = g(x)h(y)\]</span></p>
+<p>In this case, <span class="math inline">\(g(x)\)</span> is a function
+that only contains <span class="math inline">\(x\)</span> variables, and
+<span class="math inline">\(h(y)\)</span> is a function that only
+contains <span class="math inline">\(y\)</span> variables.</p>
+<p>In order to solve an equation in this form, one would first have to
+separate the <span class="math inline">\(x\)</span> terms and <span
+class="math inline">\(y\)</span> terms. For simplicity, the <span
+class="math inline">\(\frac{dy}{dx}\)</span> term can be treated as a
+fraction and separated as well to set up the upcoming integration.</p>
+<p><span class="math display">\[\frac{1}{h(y)}\, dy = g(x) \,
+dx\]</span></p>
+<p>The final step to solve this differential equation is to integrate
+both sides:</p>
+<p><span class="math display">\[\int\frac{1}{h(y)}\, dy = \int g(x) \,
+dx\]</span></p>
+<p>The result will take a form:</p>
+<p><span class="math display">\[k(y) + C_1= l(x) + C_2 \to k(y)= l(x) +
+C\]</span></p>
+<p>Since the constants <span class="math inline">\(C_1\)</span> and
+<span class="math inline">\(C_2\)</span> are arbitrary, they can be
+combined into one term. Sometimes, it is possible to solve for <span
+class="math inline">\(y\)</span> to obtain an <a href="Project/Unit1.html#explicit-solutions">explicit solution</a>. Otherwise, it is fine to
+leave the equation in the form of an <a href="Project/Unit1.html#implicit-solutions">implicit solution</a>.</p>
+<p><strong>Example:</strong> Solve the differential equation: <span
+class="math display">\[xy&#39;+y=0\]</span></p>
+<p>In this case, the variables can be separated into two terms that
+multiply each other:</p>
+<p><span class="math display">\[\frac{dy}{dx} =
+\left(\frac{1}{x}\right)(-y)\]</span></p>
+<p>These terms can then be brought to opposite sides of the equation for
+integration:</p>
+<p><span class="math display">\[\int-\frac{1}{y}\,dy = \int
+\frac{1}{x}\,dx\]</span></p>
+<p>Integrating both sides of the equation results in:</p>
+<p><span class="math display">\[-\ln \lvert y \rvert = \ln \lvert x
+\rvert+C\]</span></p>
+<p>At this point, the problem is solved, and an implicit solution has
+been found.</p>
+<p><a href="Project/Unit2.html">⇦ Unit 2</a>|<a href="Linear Equations.html">Linear Equations ⇨</a></p>
+</body>
+</html>

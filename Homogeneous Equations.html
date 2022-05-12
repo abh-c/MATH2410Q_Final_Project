@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Homogeneous Equations</title>
+  <style>
+    code {
+      white-space: pre-wrap;
+    }
+
+    span.smallcaps {
+      font-variant: small-caps;
+    }
+
+    span.underline {
+      text-decoration: underline;
+    }
+
+    div.column {
+      display: inline-block;
+      vertical-align: top;
+      width: 50%;
+    }
+
+    div.hanging-indent {
+      margin-left: 1.5em;
+      text-indent: -1.5em;
+    }
+
+    ul.task-list {
+      list-style: none;
+    }
+  </style>
+  <link rel="stylesheet" href="../publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <p><a href="Project/Unit2.html">⇦ Unit 2</a><br />
+    <a href="Bernoulli Equations.html#">⇦ Bernoulli Equations</a>|<a href="Riccati Equations.html#">Riccati
+      Equations ⇨</a></p>
+  <h1 id="homogeneous-equations">Homogeneous Equations</h1>
+  <p>A <strong>homogeneous function</strong> is defined as a function in
+    which all terms have equal total degree. The general definition is:
+    <span class="math display">\[f(tx, ty) = t^\alpha f(x, y)\]</span> An
+    example is <span class="math inline">\(f(x) = x^2y + y^2x\)</span>. The
+    total degree of each term <span class="math inline">\(3\)</span> is
+    equal, so the function is homogeneous. An example of a non-homogeneous
+    function is <span class="math inline">\(f(x) = x^3+y^2\)</span>. In this
+    case, the degree is one term <span class="math inline">\(3\)</span> does
+    not equal the degree of another term <span class="math inline">\(2\)</span>.</p>
+  <p>Note: the definition of “homogeneous” used in this section does not
+    refer to a case where some ODE equals 0. That is a different definition
+    using the same word.</p>
+  <p>A <strong>homogenous equation</strong> can be written in the form
+    <span class="math display">\[M(x, y)\, dx + N(x,y)\, dy = 0 \quad
+      \text{or} \quad \frac{dy}{dx}=\frac{M(x,y)}{N(x,y)}\]</span></p>
+  <p>where <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> are both <em>homogeneous
+      functions</em>
+    with equal total degree <span class="math inline">\(\alpha\)</span>.</p>
+  <p>Homogeneous equations can be solved using the substitution <span class="math inline">\(u = \frac{y}{x}\)</span>,
+    where <span class="math inline">\(u\)</span> is a function of <span class="math inline">\(x\)</span>. This will
+    always convert the equation
+    in to a <a href="Separable Equations.html#">separable equation</a>. After solving the
+    separable equation, <span class="math inline">\(u\)</span> can be
+    substituted with <span class="math inline">\(\frac{y}{x}\)</span> to
+    solve for <span class="math inline">\(y\)</span>.</p>
+  <p><strong>Example</strong>: Solve the differential equation:</p>
+  <p><span class="math display">\[\frac{dy}{dx} =
+      \frac{2y-x}{y+2x}\]</span></p>
+  <p>The total degrees of <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> in this case
+    are both <span class="math inline">\(2\)</span>, so this is a homogeneous equation and
+    can be solved through substitution.</p>
+  <p><span class="math display">\[y = ux \qquad \frac{dy}{dx} =
+      \frac{du}{dx}x+u\]</span></p>
+  <p><span class="math display">\[\to \frac{du}{dx}x+u =
+      \frac{2ux-x}{ux+2x} = \frac{2u-1}{u+2}\]</span></p>
+  <p>This equation can now be rearranged to create a separable
+    equation:</p>
+  <p><span class="math display">\[\frac{du}{dx}x = \frac{2u-1}{u+2} - u =
+      \frac{2u-1}{u+2} - \frac{u^2+2u}{u+2}=\frac{-u^2-1}{u+2}\]</span></p>
+  <p><span class="math display">\[\frac{du}{dx}x=-\frac{u^2+1}{u+2}\]</span></p>
+  <p><span class="math display">\[-\frac{u+2}{u^2+1}\,du = \frac{1}{x}\,dx
+      \to \int\frac{u+2}{u^2+1}\,du = \int-\frac{1}{x}\,dx\]</span></p>
+  <p><span class="math display">\[\frac{1}{2}\ln(u^2+1)+2\arctan u = -\ln
+      x + C\]</span></p>
+  <p>At this point, algebraic manipulation can be used to further simplify
+    this solution, but it is also fine to substitute in <span class="math inline">\(u = \frac{y}{x}\)</span> and obtain
+    an implicit
+    solution.</p>
+  <p><span class="math display">\[\frac{1}{2}\ln(\frac{y^2}{x^2}+1)+2\arctan
+      \frac{y}{x} = -\ln x + C\]</span></p>
+  <p><a href="Project/Unit2.html">⇦ Unit 2</a><br />
+    <a href="Bernoulli Equations.html#">⇦ Bernoulli Equations</a>|<a href="Riccati Equations.html#">Riccati Equations ⇨</a></p>
+</body>
+
+</html>
