@@ -1,3 +1,6 @@
+/* Most of this code is redundant because it was built specifically for the note-
+taking app obsidian.md. This theme used is Atom https://github.com/kognise/obsidian-atom 
+with some modifications */
 :root {
   --background-primary: #272b34;
   --background-primary-alt: #20242b;
