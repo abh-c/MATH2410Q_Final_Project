@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Euler’s Method and Numerical Approximation</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="Project/Unit4.html">&lt;- Unit 4</a><br />
+<a href="Series Solutions at Singular Points.html#">&lt;- Series Solutions at Singular Points</a>|<a href="Project/Unit5.html">Unit 5 -&gt;</a></p>
+<h1 id="eulers-method-and-numerical-approximation">Euler’s Method and Numerical Approximation</h1>
+<p><strong>Euler’s method</strong> is a way of approximating what a solution curve looks like without having to find a solution to it. This is useful if finding a solution to a particular differential equation is very difficult or just impossible. There are methods of numerical approximation that are more accurate than Euler’s method, but Euler’s method is more intuitive in how it works, so it is a good starting point to learn the idea.</p>
+<p>The general idea behind the method is to use segments of the tangent line of a solution at successive points to approximate what a solution curve looks like. Generally, for an ODE <span class="math inline">\(y&#39;=f(x, y)\)</span> given initial conditions <span class="math inline">\(x_0, y_0\)</span> and a fixed step size <span class="math inline">\(h\)</span>, in order to obtain an Euler’s method approximation you determine the slope at a point, then follow that slope to the <span class="math inline">\(x\)</span> value of a step size <span class="math inline">\(h\)</span> away, and repeat this process as long as desired. The general formulas that summarize this idea: <span class="math display">\[x_n=x_0+nh \quad y_{n+1}=y_n+hf(x_n,y_n)\]</span>
+<strong>Example</strong>: Use Euler’s method with a step size of <span class="math inline">\(\pi/2\)</span> to obtain an approximation of <span class="math inline">\(y&#39;=\cos x\)</span>. The initial point is <span class="math inline">\(y(0)=0\)</span>. Calculate the approximation until <span class="math inline">\(x=\pi\)</span>.</p>
+<p>For <span class="math inline">\(h=\pi/2\)</span>, the initial point is <span class="math inline">\((0, 0)\)</span>. The next <span class="math inline">\(x\)</span> point will be <span class="math inline">\(x+h=0+\pi/2=\pi/2\)</span>. The slope of the tangent line at this point can be found using <span class="math inline">\(y&#39;=\cos x\)</span>. <span class="math inline">\(\cos0=1\)</span>. The next <span class="math inline">\(y\)</span> value can be found by adding the current <span class="math inline">\(y\)</span> value to <span class="math inline">\(h\)</span> times the slope of the tangent line at the current point. This results in <span class="math inline">\(y+hy&#39;=0+(\pi/2)1=\pi/2\)</span>. Now the new point is <span class="math inline">\((\pi/2, \pi/2)\)</span>. If we repeat this process for the next point, we obtain the point <span class="math inline">\((\pi, \pi/2)\)</span>. In summary:</p>
+<table>
+<tr class="header">
+<td><span class="math inline">\(x\)</span></td>
+<td>Approximation</td>
+<td>Actual Value</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\pi/2\)</span></td>
+<td><span class="math inline">\(\pi/2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\pi\)</span></td>
+<td><span class="math inline">\(\pi/2\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+</table>
+<p>As you can see, the approximation with a relative step size this large is very bad. The limit as the step size approaches <span class="math inline">\(0\)</span>, will always result in the correct solution curve, but generally other approximation methods will be used instead.</p>
+<p>Some ways to quantify the error in the approximation include <strong>absolute error</strong> and <strong>relative error</strong>:</p>
+<p>absolute error = <span class="math inline">\(\lvert \text{actual – approximate}\rvert\)</span></p>
+<p>relative error = <span class="math inline">\(\frac{\lvert \text{actual – approximate}\rvert}{\lvert \text{actual}\rvert}\)</span></p>
+<p>For example, the absolute and relative errors at <span class="math inline">\(\pi/2\)</span> in the example are <span class="math inline">\(0.571\)</span> and <span class="math inline">\(57.1\%\)</span> respectively.</p>
+<p><a href="Project/Unit4.html">&lt;- Unit 4</a><br />
+<a href="Series Solutions at Singular Points.html#">&lt;- Series Solutions at Singular Points</a>|<a href="Project/Unit5.html">Unit 5 -&gt;</a></p>
+</body>
+</html>

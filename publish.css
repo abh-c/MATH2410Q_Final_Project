@@ -615,7 +615,7 @@ html {
 
 body {
   margin: 0 auto;
-  max-width: 36em;
+  max-width: 40em;
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 50px;
@@ -816,4 +816,14 @@ ul.task-list {
 
 hr {
   background-color: var(--gray-1);
+}
+
+table {
+  overflow: hidden;
+}
+
+td {
+  width: 5em;
+  border-collapse: collapse;
+  border: 1px solid var(--gray-1);
 }

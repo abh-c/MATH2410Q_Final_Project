@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Series Solutions at Singular Points</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="Project/Unit4.html">&lt;- Unit 4</a><br />
+<a href="Series Solutions at Ordinary Points.html#">&lt;- Series Solutions at Ordinary Points</a>|<a href="Euler’s Method and Numerical Approximation.html#">Euler’s Method and Numerical Approximation -&gt;</a></p>
+<h1 id="series-solutions-at-singular-points">Series Solutions at Singular Points</h1>
+<p>For an ODE of the form <span class="math inline">\(a_2(x)y&#39;&#39; + a_1(x)y&#39; + a_0(x)y = 0\)</span>, if the point <span class="math inline">\(x_0\)</span> is <em>not an <a href="Series Solutions at Ordinary Points.html#">ordinary point</a></em>, then <span class="math inline">\(x_0\)</span> is a <strong>singular point</strong>. If you divide through by <span class="math inline">\(a_2(x_0)\)</span>, then you end up with discontinuities. You can only solve <em>regular</em> singular points with the method described here, not <em>irregular</em> singular points. For a general ODE of the form:</p>
+<p><span class="math display">\[a_2(x)y&#39;&#39; + a_1(x)y&#39;+a_0(x)y = 0\]</span>
+divide through by <span class="math inline">\(a_2(x)\)</span> to get:
+<span class="math display">\[y&#39;&#39; + P(x)y&#39;+Q(x)y = 0\]</span>
+<span class="math inline">\(x_0\)</span> is a <em>regular singular point</em> if <span class="math inline">\(p(x) = xP(x)\)</span> and <span class="math inline">\(q(x) = x^2Q(x)\)</span> are both <em>analytic</em> at <span class="math inline">\(x_0\)</span>. This means that you will be able to find a series solution because the equation is close enough to being a <a href="Cauchy-Euler equations.html#">Cauchy-Euler equation</a>. If these conditions are not true, then you have an <em>irregular singular point</em> and this method will not work.</p>
+<h2 id="frobenius-theorem">Frobenius’ Theorem</h2>
+<p>If <span class="math inline">\(x_0=0\)</span> is a regular singular point, then there exists at least one solution of the form:</p>
+<p><span class="math display">\[y=x^r\sum^\infty_{n=0}c_nx^n=\sum^\infty_{n=0}c_nx^{r+n}\]</span>
+where <span class="math inline">\(n \in \mathbb{N}\)</span> (naturals, e.g. <span class="math inline">\(1, 2, 3, 4, \ldots\)</span>) but <span class="math inline">\(r \in \mathbb{R}\)</span> (reals, e.g <span class="math inline">\(0.123, \pi, \sqrt42, \ldots\)</span>)</p>
+<p>The general procedure to solve these equations is to define the above solution form for <span class="math inline">\(y\)</span>, substitute that value into the ODE, then find a <em>recurrence relation</em> and use it to determine two linearly independent solutions in the form of series.</p>
+<hr />
+<p><strong>Example:</strong> solve <span class="math display">\[3xy&#39;&#39;+y&#39;-y=0 \text{ about } x_0=0\]</span>
+First, define the solution <span class="math inline">\(y\)</span> as a general power series and find its first and second derivatives:</p>
+<p><span class="math display">\[y = \sum^\infty_{n=0}c_nx^{r+n}\]</span></p>
+<p><span class="math display">\[y&#39; = \sum^\infty_{n=0}(r+n)c_nx^{r+n-1}\]</span></p>
+<p><span class="math display">\[y&#39;&#39; = \sum^\infty_{n=0}(r+n)(r+n-1)c_nx^{r+n-2}\]</span></p>
+<p>Note that the initial index has to remain at 0 because it is not guaranteed that any term is 0 because <span class="math inline">\(r\)</span> can be any real number. This differs from the approach to solving at ordinary points.</p>
+<p>Next, substitute into the ODE:</p>
+<p><span class="math display">\[\sum^\infty_{n=0}3(r+n)(r+n-1)c_nx^{r+n-1}+\sum^\infty_{n=0}(r+n)c_nx^{r+n-1}-\sum^\infty_{n=0}c_nx^{r+n}=0\]</span>
+The <span class="math inline">\(3x\)</span> has been brought into the left sum, which has changed the <span class="math inline">\(x\)</span> exponent to <span class="math inline">\(x^{r+n-1}\)</span>. Notice that the right sum is being subtracted as well.</p>
+<p>Because <span class="math inline">\(x^r\)</span> only equals <span class="math inline">\(0\)</span> when <span class="math inline">\(x=0\)</span>—and that would make the whole solution <span class="math inline">\(0\)</span>, which we are not looking for—an <span class="math inline">\(x^r\)</span> term can be safely brought out of each sum and divided out:</p>
+<p><span class="math display">\[\sum^\infty_{n=0}3(r+n)(r+n-1)c_nx^{n-1}+\sum^\infty_{n=0}(r+n)c_nx^{n-1}-\sum^\infty_{n=0}c_nx^{n}=0\]</span></p>
+<p>Now we can reindex with the goal of getting each <span class="math inline">\(x\)</span> term to have an exponent of only an index <span class="math inline">\(k\)</span>. For the left and middle sums, we will use the substitution <span class="math inline">\(k=n-1\)</span>, and for the right sum we only have to do <span class="math inline">\(k=n\)</span>:</p>
+<p><span class="math display">\[\sum^\infty_{k=-1}3(r+k+1)(r+k)c_{k+1}x^{k}+\sum^\infty_{k=-1}(r+k+1)c_{k+1}x^{k}-\sum^\infty_{k=0}c_nx^{k}=0\]</span></p>
+<p>Now all the <span class="math inline">\(x\)</span> terms have the same exponent, but to combine the sums the initial indices must be the same as well. To do this, take out the <span class="math inline">\(-1\)</span>st terms of the first and second sums, then combine the sums. The <span class="math inline">\(-1\)</span>st term of the left term is <span class="math inline">\(3r(r-1)c_0x^{-1}\)</span>, and the <span class="math inline">\(-1\)</span>st term of the middle term is <span class="math inline">\(rc_0x^{-1}\)</span>. Combining these terms yields <span class="math inline">\(r(3r-2)c_0x^{-1}\)</span>. After taking these terms out and combining the rest of the sums, the result is:</p>
+<p><span class="math display">\[r(3r-2)c_0x^{-1}+\sum_{k=0}^\infty [(k+r+1)(3k+3r+1)c_{k+1}-c_k]x^k=0\]</span>
+The only case where this equation is true is where the coefficient term in the sum is always equal to zero, since no sum of various powers of <span class="math inline">\(x\)</span> will ever add with <span class="math inline">\(r(3r-2)c_0x^{-1}\)</span> to result in <span class="math inline">\(0\)</span>. The coefficient term <span class="math inline">\((k+r+1)(3k+3r+1)c_{k+1}-c_k\)</span> must equal zero, so the sum must equal zero, so <span class="math inline">\(r(3r-2)c_0x^{-1}\)</span> must equal <span class="math inline">\(0\)</span>.</p>
+<p>For this solution method, we assume <span class="math inline">\(c_0 \ne0\)</span> because otherwise the whole solution would collapse into nothingness. <span class="math inline">\(x^{-1}\)</span> can’t equal <span class="math inline">\(0\)</span> in any case so the so, <span class="math inline">\(r(3r-2)\)</span> must <span class="math inline">\(0\)</span>. Using this equation <span class="math inline">\(r(3r-2)=0\)</span>, we can find <span class="math inline">\(r\)</span>: <span class="math inline">\(r = \frac{2}{3},0\)</span>.</p>
+<p>Also, since the coefficient term in the sum has to equal zero, we can use that to obtain a <em>recurrence relation</em>: <span class="math inline">\([(k+r+1)(3k+3r+1)c_{k+1}-c_k] = 0\)</span>, <span class="math inline">\(\to c_{k+1} = \frac{c_k}{(k+r+1)(3k+3r+1)}\)</span></p>
+<p>When you plug in both values of <span class="math inline">\(r\)</span>, you get two recurrence relations:
+<span class="math display">\[c_{k+1} = \frac{c_k}{(k+\frac{5}{3})(3k+3)}\]</span>
+and
+<span class="math display">\[c_{k+1} = \frac{c_k}{(k+1)(3k+1)}\]</span></p>
+<p>Assume <span class="math inline">\(c_0\)</span> is arbitrary and get <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span> in terms of <span class="math inline">\(c_0\)</span> for both recurrence relations. <span class="math inline">\(c_0\)</span> is arbitrary and will get absorbed into other constant terms at the end, so you can just assume <span class="math inline">\(c_0=1\)</span> for convenience.</p>
+<p>Some values for the first relation:</p>
+<table>
+<tr class="header">
+<td><span class="math inline">\(c_0\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(c_1\)</span></td>
+<td><span class="math inline">\(1/16\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(c_2\)</span></td>
+<td><span class="math inline">\((1/16)/33=1/528\)</span></td>
+</tr>
+</table>
+<p>Some values for the second relation:</p>
+<table>
+<tr class="header">
+<td><span class="math inline">\(c_0\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(c_1\)</span></td>
+<td><span class="math inline">\(1/8\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(c_2\)</span></td>
+<td><span class="math inline">\((1/8)/21=1/168\)</span></td>
+</tr>
+</table>
+<p>Now we can substitute the constants we found for both <span class="math inline">\(r\)</span> values into the original sum we defined for <span class="math inline">\(y\)</span>:</p>
+<p><span class="math display">\[r_1: y_1 = \sum^\infty_{n=0}c_nx^{\frac{2}{3}+n} = x^{\frac{2}{3}}+\frac{1}{16}x^{\frac{5}{3}}+\frac{1}{528}x^{\frac{7}{3}}+\cdots\]</span></p>
+<p><span class="math display">\[r_2: y_2 = \sum^\infty_{n=0}c_nx^{n} = x+\frac{1}{8}x^{2}+\frac{1}{168}x^{3}+\cdots\]</span></p>
+<p>In this case, both solutions are defined at zero, but this doesn’t always happen.</p>
+<p>You can check the <a href="Linear Operators and Linear Independence.html#the-wronskian">the Wronskian</a> for linear independence.</p>
+<p>The general solution is <span class="math inline">\(y = c_1y_1+c_2y_2\)</span>, so it can be written as: <span class="math display">\[y=c_1(x^{\frac{2}{3}}+\frac{1}{16}x^{\frac{5}{3}}+\frac{1}{528}x^{\frac{7}{3}}+\cdots)+c_2(x+\frac{1}{8}x^{2}+\frac{1}{168}x^{3}+\cdots)\]</span>
+where <span class="math inline">\(y_1\)</span> and <span class="math inline">\(y_2\)</span> are written as series</p>
+<p><a href="Project/Unit4.html">&lt;- Unit 4</a><br />
+<a href="Series Solutions at Ordinary Points.html#">&lt;- Series Solutions at Ordinary Points</a>|<a href="Euler’s Method and Numerical Approximation.html#">Euler’s Method and Numerical Approximation -&gt;</a></p>
+</body>
+</html>
