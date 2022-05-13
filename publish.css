@@ -672,7 +672,6 @@ img {
   max-width: 100%;
 }
 
-h1,
 h2,
 h3,
 h4,
@@ -681,9 +680,6 @@ h6 {
   margin-top: 1.4em;
 }
 
-h1 {
-  margin-top: -0.6em;
-}
 
 h5,
 h6 {
@@ -830,4 +826,8 @@ td {
   width: 5em;
   border-collapse: collapse;
   border: 1px solid var(--gray-1);
+}
+
+h1 {
+  margin-top: -0.6em;
 }
