@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Matrix Exponentials</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="UConn MATH 2410Q Project Unit 6.html#">&lt;- Unit 6</a><br />
+<a href="Phase Portraits.html#">&lt;- Phase Portraits</a>|<a href="UConn MATH 2410Q Final Project/UConn MATH 2410Q Project Unit 7.html#">Unit 7 -&gt;</a></p>
+<h1 id="matrix-exponentials12">Matrix Exponentials<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></h1>
+<p>Matrix exponentials are an alternative method to <a href="eigenvalues and eigenvectors.html#">eigenvalues and eigenvectors</a> for solving linear systems with the form: <span class="math display">\[\vec{X}&#39;=A\vec{X}\]</span>
+One advantage to this method is that the solution form works independent of the eigenvalues of the matrix <span class="math inline">\(A\)</span>.</p>
+<h2 id="solution-form">Solution Form</h2>
+<p>The general idea behind this solution method is an expansion of a solution pattern for differential equations. For an ODE of the form <span class="math inline">\(y&#39;=ay\)</span>, where <span class="math inline">\(a\)</span> is some constant, the solution form is <span class="math display">\[y=e^{at}y_0\]</span> where <span class="math inline">\(y_0\)</span> is an initial condition. This is true because the ODE <span class="math inline">\(y&#39;=ay\)</span> describes a function <span class="math inline">\(y\)</span> whose rate of growth <span class="math inline">\(y&#39;\)</span> is proportional to itself <span class="math inline">\(y\)</span>, and this behavior is present in the exponential function, since its derivative is proportional to itself: <span class="math display">\[\frac{d}{dt}e^{at}=ae^{at}\]</span>
+Now, this solution method uses a new kind of behavior—<strong>matrix exponentials</strong>—to get the same solution pattern when solving a system. Like with <span class="math inline">\(y&#39;=ay\)</span>, the solution <span class="math inline">\(\vec{X}\)</span> to the system <span class="math inline">\(\vec{X}&#39;=A\vec{X}\)</span> grows (<span class="math inline">\(\vec{X}&#39;\)</span>) at a rate proportional to itself. Therefore, the solution must be of the form: <span class="math display">\[\vec{X}=e^{At}\vec{X}_0\]</span>
+Where the initial conditions <span class="math inline">\(\vec{X}_0=\begin{bmatrix}x(0)\\y(0) \end{bmatrix}\)</span>, <span class="math inline">\(A\)</span> is a matrix, and <span class="math inline">\(e^{At}\)</span> is a matrix that changes over time (with respect to <span class="math inline">\(t\)</span>).</p>
+<h2 id="definition-of-matrix-exponentials">Definition of Matrix Exponentials</h2>
+<p>The concept of taking <span class="math inline">\(e\)</span> to the power of a matrix is based on the Taylor series of <span class="math inline">\(e^x\)</span>. <span class="math inline">\(e^x\)</span> can be modeled as an infinite series of polynomials: <span class="math display">\[e^x=x^0+x^1+\frac{1}{2}x^2+\frac{1}{3!}x^3+\frac{1}{4!}x^4+\cdots+\frac{1}{n!}x^n+\cdots\]</span>
+Matrix exponentials use this property of <span class="math inline">\(e^x\)</span> as a <em>definition</em>. The matrix exponential <span class="math inline">\(e^A\)</span> (where <span class="math inline">\(A\)</span> is a square matrix that can be multiplied by itself) can be modeled using this definition as follows: <span class="math display">\[e^A:=A^0+A+\frac{1}{2}A^2+\frac{1}{3!}A^3+\frac{1}{4!}A^4+\cdots+\frac{1}{n!}A^n+\cdot\]</span>
+In this case, <span class="math inline">\(A_0=I\)</span>, the identity matrix. The result <span class="math inline">\(e^A\)</span> is also a matrix.</p>
+<p>In general, for any matrix <span class="math inline">\(A\)</span>, the matrix <span class="math inline">\(e^A\)</span> will approach a stable value as more and more terms of the series are added.</p>
+<p>Using this definition, you can prove that <span class="math display">\[\frac{d}{dt}[e^{At}\vec{X}_0]=Ae^{At}\vec{X}_0\]</span>
+showing that matrix exponentials—like regular exponentials <span class="math inline">\(\frac{d}{dt}e^{at}=ae^{at}\)</span>—have the property that their derivatives are proportional to themselves.</p>
+<h2 id="intuition">Intuition</h2>
+<p>You can think of <span class="math inline">\(e^{At}\)</span> as a transformation of the initial condition vector <span class="math inline">\(\vec{X}_0\)</span>. <span class="math inline">\(e^{At}\)</span> changes over time depending on <span class="math inline">\(t\)</span> because the behavior of the solution <span class="math inline">\(\vec{X}\)</span> is such that the rate of change <span class="math inline">\(\vec{X}&#39;\)</span> depends on the value of <span class="math inline">\(\vec{X}\)</span>. You can visualize this as <span class="math inline">\(\vec{X}\)</span> being a vector starting at the origin and <span class="math inline">\(\vec{X}&#39;\)</span> being a vector starting at the tip of <span class="math inline">\(\vec{X}\)</span> pointing in the direction that <span class="math inline">\(\vec{X}&#39;\)</span> will go. By drawing the values of <span class="math inline">\(\vec{X}&#39;\)</span>, which equals <span class="math inline">\(A\vec{X}\)</span>, as little vectors at gridded points in the <a href="Phase Portraits.html#">phase space</a>, you can visualize the “flow” that solutions will take given initial conditions.</p>
+<p>The effect of the <span class="math inline">\(e^{At}\)</span> matrix in the solution can therefore be visualized by letting every point in space follow this “flow” for some time <span class="math inline">\(t\)</span>. The matrix <span class="math inline">\(e^{At}\)</span> describes the corresponding transformation. In this way, <em>the matrix exponential describes the “flow” of the solutions to the system of equations over time</em>.</p>
+<p>As an example, the matrix <span class="math inline">\(\begin{bmatrix} 0 &amp; -1\\1&amp;0\end{bmatrix}\)</span> as a transformation represents a 90 degree counterclockwise rotation. <span class="math inline">\(e^{\begin{bmatrix} 0 &amp; -1\\1&amp;0\end{bmatrix}t}\)</span> represents the flow of the solutions over time, and in this case represents the revolution of solutions around the origin over time. This can be seen in the following video:</p>
+<p><a href="matrixexp_intuition 1.mp4.html#">matrixexp_intuition 1.mp4</a>
+Credit: 3Blue1Brown<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<h2 id="example">Example</h2>
+<p>Solve: <span class="math display">\[\vec{X}&#39;=\begin{bmatrix} 0&amp;1\\-1&amp;0\end{bmatrix}\vec{X}\qquad \vec{X}_0=\begin{bmatrix} 1\\1\end{bmatrix}\]</span>
+Note: this matrix represents a <span class="math inline">\(90\degree\)</span> rotation clockwise.</p>
+<p>According to the method of matrix exponentials, the solution should be of the form <span class="math display">\[\vec{X}=e^{\begin{bmatrix} 0&amp;1\\-1&amp;0\end{bmatrix}t}\vec{X}_0\]</span>
+In order to find <span class="math inline">\(e^{\begin{bmatrix} 0&amp;1\\-1&amp;0\end{bmatrix}t}\)</span>, we can use the power series definition of matrix exponentials:
+<span class="math display">\[e^A:=A^0+A+\frac{1}{2}A^2+\frac{1}{3!}A^3+\frac{1}{4!}A^4+\cdots+\frac{1}{n!}A^n+\cdot\]</span>
+<span class="math display"  style="font-size: 0.8em;">\[e^{\begin{bmatrix} 0&amp;1\\-1&amp;0\end{bmatrix}t}:=I+\begin{bmatrix} 0&amp;1\\-1&amp;0\end{bmatrix}t+\frac{1}{2}\begin{bmatrix} 0&amp;1\\-1&amp;0\end{bmatrix}^2t^2+\frac{1}{3!}\begin{bmatrix} 0&amp;1\\-1&amp;0\end{bmatrix}^3t^3+\frac{1}{4!}\begin{bmatrix} 0&amp;1\\-1&amp;0\end{bmatrix}^4t^4+\frac{1}{5!}\begin{bmatrix} 0&amp;1\\-1&amp;0\end{bmatrix}^5t^5\cdots\]</span></p>
+<p><span class="math display"  style="font-size: 0.8em;">\[=\begin{bmatrix} 1&amp;0\\0&amp;1\end{bmatrix}+\begin{bmatrix} 0&amp;1\\-1&amp;0\end{bmatrix}t+\frac{1}{2}\begin{bmatrix} -1&amp;0\\0&amp;-1\end{bmatrix}t^2+\frac{1}{3!}\begin{bmatrix} 0&amp;-1\\1&amp;0\end{bmatrix}t^3+\frac{1}{4!}\begin{bmatrix} 1&amp;0\\0&amp;1\end{bmatrix}t^4+\frac{1}{5!}\begin{bmatrix} 0&amp;1\\-1&amp;0\end{bmatrix}t^5\cdots\]</span></p>
+<p>Notice that the matrix powers repeat every four powers. Now, we can find the sum of all these matrices to find <span class="math inline">\(e^{\begin{bmatrix} 0&amp;1\\-1&amp;0\end{bmatrix}t}\)</span>.</p>
+<p><span class="math display">\[e^{\begin{bmatrix} 0&amp;1\\-1&amp;0\end{bmatrix}t}=\begin{bmatrix} 1-\frac{1}{2}t^2+\frac{1}{4!}t^4-\cdots &amp;&amp; t-\frac{1}{3!}t^3+\frac{1}{5!}t^5-\cdots\\-t+\frac{1}{3!}t^3-\frac{1}{5!}t^5+\cdots &amp;&amp; 1-\frac{1}{2}t^2+\frac{1}{4!}t^4-\cdots\end{bmatrix}\]</span></p>
+<p>In this case, these power series are actually the series for <span class="math inline">\(\sin\)</span> and <span class="math inline">\(\cos\)</span>: <span class="math display">\[e^{\begin{bmatrix} 0&amp;1\\-1&amp;0\end{bmatrix}t}=\begin{bmatrix}\cos t &amp; \sin t\\-\sin t &amp; \cos t \end{bmatrix}\]</span>
+Finally, we can substitute this value in in the solution: <span class="math display">\[\vec{X}=\begin{bmatrix}\cos t &amp; \sin t\\-\sin t &amp; \cos t \end{bmatrix}\begin{bmatrix}1\\1 \end{bmatrix}\]</span></p>
+<p>In this case, the matrix <span class="math inline">\(\begin{bmatrix}\cos t &amp; \sin t\\-\sin t &amp; \cos t \end{bmatrix}\)</span> represents the transformation of clockwise rotation over time. This makes sense because the initial matrix <span class="math inline">\(\begin{bmatrix} 0&amp;1\\-1&amp;0\end{bmatrix}\)</span> represents a <span class="math inline">\(90\degree\)</span> clockwise rotation. If <span class="math inline">\(\vec{X}&#39;\)</span> is always equal to a <span class="math inline">\(90\degree\)</span> clockwise rotation of <span class="math inline">\(\vec{X}\)</span>, then the only way the solution changes over time is rotating clockwise in the phase space. The matrix exponential describes a “flow” like that shown in the <a href="Matrix Exponentials.html#intuition">video</a>, except the flow is clockwise instead of counterclockwise.</p>
+<p><a href="UConn MATH 2410Q Project Unit 6.html#">&lt;- Unit 6</a><br />
+<a href="Phase Portraits.html#">&lt;- Phase Portraits</a>|<a href="UConn MATH 2410Q Final Project/UConn MATH 2410Q Project Unit 7.html#">Unit 7 -&gt;</a></p>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="https://www.youtube.com/watch?v=O85OWBJ2ayo">How (and why) to raise e to the power of a matrix | DE6</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="https://www.youtube.com/watch?v=LwSk9M5lJx4">The Matrix Exponential</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="https://www.youtube.com/watch?v=O85OWBJ2ayo">How (and why) to raise e to the power of a matrix | DE6</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>

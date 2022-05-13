@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Eigenvalues and Eigenvectors</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="UConn MATH 2410Q Project Unit 6.html#">&lt;- Unit 6</a>|<a href="Real, Distinct Eigenvalues.html#">Real, Distinct Eigenvalues -&gt;</a></p>
+<h1 id="eigenvalues-and-eigenvectors">Eigenvalues and Eigenvectors</h1>
+<p>Some background in linear algebra is useful in understanding eigenvalues and eigenvectors.</p>
+<p>You can think of a matrix as some kind of transformation of a coordinate system. For example, if in a transformation the unit vectors <span class="math inline">\(\hat{i} = \begin{bmatrix} 1\\0\end{bmatrix}\)</span> and <span class="math inline">\(\hat{j} = \begin{bmatrix} 0\\1\end{bmatrix}\)</span> shift to <span class="math inline">\(\begin{bmatrix} 2\\0\end{bmatrix}\)</span> and <span class="math inline">\(\begin{bmatrix} 1\\1\end{bmatrix}\)</span> respectively, then that transformation of the 2D plane can be represented with the matrix <span class="math inline">\(\begin{bmatrix} 2&amp;1\\0&amp;1\end{bmatrix}\)</span>.</p>
+<p>After this transformation, there may exist some vectors for which the <em>span</em> they inhabit (their line of action through the origin) is not changed. An example is <span class="math inline">\(\hat{i} = \begin{bmatrix} 1\\0\end{bmatrix}\to \begin{bmatrix} 2\\0\end{bmatrix}\)</span>, which doesn’t change its span and only stretches the vector by a factor of <span class="math inline">\(2\)</span>. In fact, any vector on that span will stay on that span and stretch by a factor of <span class="math inline">\(2\)</span> because the transformation is linear. The effect is that the transformation applied to these vectors will have the same effect as multiplying the vectors by the scalar <span class="math inline">\(2\)</span>. Any other vectors will be rotated somewhat and leave their original span after the transformation.</p>
+<p>In this case, you would say that the vectors on the <span class="math inline">\(\begin{bmatrix} 1\\0\end{bmatrix}\)</span> span are the <strong>eigenvectors</strong> and that the <strong>eigenvalue</strong> is equal to the “stretch factor” <span class="math inline">\(2\)</span>. Each set of eigenvectors has an eigenvalue associated with it.</p>
+<p>In order to find the eigenvalue of a particular transformation, you can use the relation: <span class="math display">\[A\vec{v}=\lambda \vec{v}\]</span>
+Where <span class="math inline">\(A\)</span> is the transformation matrix and <span class="math inline">\(\lambda\)</span> is the scalar eigenvalue. You could also write <span class="math inline">\(\lambda I=\begin{bmatrix}\lambda &amp;0 \\0&amp;\lambda \end{bmatrix}\)</span>, there <span class="math inline">\(I\)</span> is the identity matrix, instead of just <span class="math inline">\(\lambda\)</span> to make sure that both sides of the equation show matrix multiplication. This transformation describes how the transformation <span class="math inline">\(A\)</span> applied to the vector is equal to multiplying the vector by a scalar—the eigenvalue.</p>
+<p>This equation can be rearranged to obtain: <span class="math display">\[(A-\lambda)\vec{v}=\vec{0}\]</span>
+The only case in which a non-zero matrix multiplied by a non-zero vector can equal the 0 vector is when the matrix, in this case <span class="math inline">\(A-\lambda\)</span>, squishes all of the coordinate grid into a smaller dimension, which squishes the vector <span class="math inline">\(\vec{v}\)</span> into a single 0-dimensional point. The only way this will work is if the <em>determinant</em> of the matrix—which represents the factor by which an area is scaled after a transformation—is equal to <span class="math inline">\(0\)</span>. Using this, we can solve for the eigenvalues of the transformation, if they exist.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p><strong>Example:</strong> find the eigenvalues for the transformation of <span class="math inline">\(A=\begin{bmatrix} 2&amp;1\\0&amp;1\end{bmatrix}\)</span></p>
+<p>In this case, <span class="math inline">\(A-\lambda I=\begin{bmatrix} 2-\lambda&amp;1\\0&amp;1-\lambda\end{bmatrix}\)</span></p>
+<p>Now, set the determinant equal to 0 and solve for <span class="math inline">\(\lambda\)</span>: <span class="math display">\[\begin{vmatrix} 2-\lambda&amp;1\\0&amp;1-\lambda\end{vmatrix}=0=\lambda^2-3\lambda+2\]</span></p>
+<p>The eigenvalue solutions for this quadratic equation are <span class="math inline">\(\lambda={2, 1}\)</span>.</p>
+<p>We can use these eigenvalues to find eigenvectors. For example, for <span class="math inline">\(\lambda=2\)</span>, eigenvectors must satisfy the equation: <span class="math display">\[\begin{bmatrix} 2-2&amp;1\\0&amp;1-2\end{bmatrix}\begin{bmatrix}x\\y \end{bmatrix}=0\]</span>
+This relationship indicates any vectors where <span class="math inline">\(y=0\)</span> and <span class="math inline">\(x\)</span> is any real number are eigenvectors with eigenvalue <span class="math inline">\(2\)</span>.</p>
+<hr />
+<h2 id="using-eigenvalues-to-solve-linear-systems">Using Eigenvalues to Solve Linear Systems</h2>
+<p>This relationship is useful for solving linear systems of differential equations with constant coefficients, especially homogeneous ones of the form <span class="math display">\[\vec{X}&#39;=A\vec{X}\]</span>where <span class="math inline">\(\vec{X}\)</span> is a vector of functions dependent on some (usually unseen) independent variable <span class="math inline">\(t\)</span>, and <span class="math inline">\(A\)</span> is a square matrix of constants. An example would be <span class="math display">\[\begin{matrix} x&#39;=x-y\\y&#39;=x+y\end{matrix}\to\vec{X}&#39;=\begin{bmatrix} 1&amp;-1\\1&amp;1\end{bmatrix}\vec{X}\]</span> where <span class="math inline">\(\vec{X}=\begin{bmatrix} x(t)\\y(t)\end{bmatrix}\)</span></p>
+<p>For an <span class="math inline">\(n\times n\)</span> linear homogeneous system, there are <span class="math inline">\(n\)</span> linearly independent solutions that can be tested using the <a href="Linear Operators and Linear Independence.html#the-wronskian">Wronskian</a>.</p>
+<p>For systems of this form, if we assume that general solution form is <span class="math inline">\(\vec{X}=\vec{K}e^{\lambda t}\)</span>, then you get the relationship: <span class="math display">\[A\vec{K}=\lambda\vec{K}\]</span>which means that <span class="math inline">\(\lambda\)</span> is an eigenvalue of <span class="math inline">\(A\)</span> and that <span class="math inline">\(\vec{K}\)</span> is an eigenvector. You can use this relationship to solve for <span class="math inline">\(\lambda\)</span>. The general solution is <span class="math display">\[\vec{X}(t)=c_1\vec{K}_1e^{\lambda_1 t}+c_2\vec{K}_2e^{\lambda_2 t}\]</span></p>
+<p><a href="UConn MATH 2410Q Project Unit 6.html#">&lt;- Unit 6</a>|<a href="Real, Distinct Eigenvalues.html#">Real, Distinct Eigenvalues -&gt;</a></p>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="https://www.youtube.com/watch?v=PFDu9oVAE-g">Eigenvectors and eigenvalues | Chapter 14, Essence of linear algebra</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="https://www.youtube.com/watch?v=Ip3X9LOh2dk">The determinant | Chapter 6, Essence of linear algebra</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>

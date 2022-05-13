@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Phase Portraits</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="UConn MATH 2410Q Project Unit 6.html#">&lt;- Unit 6</a><br />
+<a href="Complex Eigenvalues.html#">&lt;- Complex Eigenvalues</a>|<a href="Matrix Exponentials.html#">Matrix Exponentials -&gt;</a></p>
+<h1 id="phase-portraits">Phase Portraits</h1>
+<p>Phase portraits can be used to visualize solutions for a system of linear equations, in this case of the form <span class="math display">\[\vec{X}&#39;=A\vec{X}\]</span>
+The axes of <em>phase space</em> are the values of the functions <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> which both depend on an independent variable <span class="math inline">\(t\)</span>. In this case, <span class="math inline">\(\vec{X}=\begin{bmatrix} x(t)\\y(t)\end{bmatrix}\)</span>. Lines in drawn in the phase space represent how <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> evolve over time depending on the initial conditions.</p>
+<p>In the phase space, the origin is a fixed point, meaning any solution with initial conditions at the origin will stay at the origin forever. The behavior of all other solution curves depend on the eigenvalues of the solution. For example, the node could be stable, meaning all solutions converge at the origin, or the node could be unstable, meaning all solutions move away from the origin.</p>
+<p>Here is an example of a phase portrait for <span class="math display">\[\vec{X}&#39;=\begin{bmatrix} 2&amp;1\\0&amp;1\end{bmatrix}\vec{X}\]</span></p>
+<p><img src="Phase Portrait-picture.png"></p>
+<p>In this case, all the solutions go away from the origin.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><a href="UConn MATH 2410Q Project Unit 6.html#">&lt;- Unit 6</a><br />
+<a href="Complex Eigenvalues.html#">&lt;- Complex Eigenvalues</a>|<a href="Matrix Exponentials.html#">Matrix Exponentials -&gt;</a></p>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="https://www.youtube.com/watch?v=UO_dgXa5szg">https://www.youtube.com/watch?v=UO_dgXa5szg</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>
