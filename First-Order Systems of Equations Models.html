@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>First-Order Systems of Equations Models</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="Project/Unit7.html">&lt;- Unit 7</a><br />
+<a href="First-Order Nonlinear Models.html#">&lt;- First-Order Nonlinear Models</a></p>
+<h1 id="first-order-systems-of-equations-models">First-Order Systems of Equations Models</h1>
+<p>Some real-life phenomena can be modeled with systems of equations. An example is this is a circuit with parallel elements.</p>
+<p><img src="FirstOrderSystemsofEquationsModels.png"></p>
+<p>In this case, the voltage supply is 10V, both resistors are 1 <span class="math inline">\(\ohm\)</span> and both inductors are <span class="math inline">\(1 H\)</span> (which is a lot by the way). The current in loop 1 is <span class="math inline">\(I_1\)</span>. The current in loop 2 is <span class="math inline">\(I_2\)</span>.</p>
+<p>Using both loops with Kirchhoff’s voltage law, you get the following equations:</p>
+<p><span class="math display">\[L_1I_1&#39;+R_1I_1=10\to I_1&#39;+I_1=10\]</span></p>
+<p><span class="math display">\[L_2I_2&#39;+R_2I_2=10\to I_2&#39;+I_2=10\]</span></p>
+<p>This can be rewritten as a system of equations: <span class="math display">\[\vec{X}&#39;=\begin{bmatrix} -1&amp;0\\0&amp;-1\end{bmatrix}\vec{X}+\begin{bmatrix} 10\\10\end{bmatrix}\]</span>
+where <span class="math inline">\(\vec{X} = \begin{bmatrix}I_1\\I_2 \end{bmatrix}\)</span>.</p>
+<p>This can be solved using <a href="Eigenvalues and Eigenvectors.html#">Eigenvalues and Eigenvectors</a>.</p>
+<p><a href="Project/Unit7.html">&lt;- Unit 7</a><br />
+<a href="First-Order Nonlinear Models.html#">&lt;- First-Order Nonlinear Models</a></p>
+</body>
+</html>

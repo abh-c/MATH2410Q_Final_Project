@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>First-Order Linear Models</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="Project/Unit7.html">&lt;- Unit 7</a>|<a href="First-Order Nonlinear Models.html#">First-Order Nonlinear Models -&gt;</a></p>
+<h1 id="first-order-linear-models">First-Order Linear Models</h1>
+<p>Differential equations are used to model a wide variety of phenomena. One subject that can be modeled using a first-order linear model is temperature change over time. One model for this is Newton’s Law of Cooling/Warming: <span class="math display">\[\frac{dT}{dt} = k(T-T_m)\]</span>
+In this case, <span class="math inline">\(T_m\)</span> is equal to the ambient temperature, and <span class="math inline">\(k\)</span> is a constant determined experimentally depending on the situation.</p>
+<p><strong>Example:</strong> A tub of ice cream is warming up while sitting in a room in a way that is modeled by Newton’s Law of Cooling/Warming, where room temperature is <span class="math inline">\(25\degree C\)</span>, and where the constant <span class="math inline">\(k\)</span> has been experimentally determined to be equal to <span class="math inline">\(-2\)</span>. At time <span class="math inline">\(t=0\)</span>, the ice cream has a temperature of <span class="math inline">\(0\degree C\)</span>. Find the solution <span class="math inline">\(T(t)\)</span> to the differential equation: <span class="math display">\[\frac{dT}{dt} = k(T-T_m)\]</span></p>
+<p>This is a <a href="Separable Equations.html#">separable equation</a> and can be solved by separating the variables and integrating to find the solution:</p>
+<p><span class="math display">\[\frac{1}{T-T_m}dT=k\,dt \to \int\frac{1}{T-T_m}dT=\int k\,dt\]</span></p>
+<p><span class="math display">\[\to \ln\lvert T-T_m\rvert=kt+C\]</span>
+This is an <a href="Project/Unit1.html#solutions-to-differential-equations">implicit solution</a>, so technically we could stop here if we only wanted the general solution. However, it isn’t too hard to rearrange this equation to solve for <span class="math inline">\(T\)</span>:</p>
+<p><span class="math display">\[e^{\ln\lvert T-T_m\rvert}=e^{kt+C}\]</span>
+<span class="math display">\[\lvert T-T_m\rvert=Ce^{kt}\]</span></p>
+<p>Since the problem stated that he ice cream was “warming up”, we can assume that <span class="math inline">\(T&lt;T_m\)</span></p>
+<p><span class="math display">\[T_m-T=Ce^{kt}\to T=T_m-Ce^{kt}\]</span>
+<span class="math display">\[T=25-Ce^{-2t}\]</span></p>
+<p>Now to solve for <span class="math inline">\(C\)</span>, we can use the initial condition <span class="math inline">\((0,0)\)</span>:</p>
+<p><span class="math display">\[0=25-Ce^0\to C=25\]</span></p>
+<p>The solution modeling this situation is <span class="math display">\[T=25-25e^{-2t}\]</span></p>
+<p><a href="Project/Unit7.html">&lt;- Unit 7</a>|<a href="First-Order Nonlinear Models.html#">First-Order Nonlinear Models -&gt;</a></p>
+</body>
+</html>

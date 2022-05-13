@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>First-Order Nonlinear Models</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="Project/Unit7.html">&lt;- Unit 7</a><br />
+<a href="First-Order Linear Models.html#">&lt;- First-Order Linear Models</a>|<a href="First-Order Systems of Equations Models.html#">First-Order Systems of Equations Models -&gt;</a></p>
+<h1 id="first-order-nonlinear-models">First-Order Nonlinear Models</h1>
+<p>Although most of the solution methods in this course have involved <a href="linear equations.html#">linear equations</a>, many differential equations that model real-life phenomena are <em>nonlinear</em>. An example is the logistic growth model <span class="math display">\[\frac{dP}{dt}=rP\left(1-\frac{P}{K}\right)\]</span>
+where <span class="math inline">\(K\)</span> is the <em>carrying capacity</em> and <span class="math inline">\(r\)</span> indicates the growth rate</p>
+<p>This model can produce an “S” shaped curve that initially looks exponential but then flattens out as it approaches the carrying capacity.</p>
+<p>After expanding the equation out, we get: <span class="math display">\[P&#39;=rP-\frac{r}{K}P^2\]</span>
+The <span class="math inline">\(P^2\)</span> term indicates that this is a nonlinear ODE and an <a href="Autonomous Equations and Phase Lines.html#">autonomous equation</a>.</p>
+<p><strong>Example:</strong></p>
+<p>If we wanted to use this equation to model, for example, the growth of the population of bacteria in a petri dish, we could do so. Say we have an initial population <span class="math inline">\(P(0)=100\)</span>, a growth rate of <span class="math inline">\(r=0.25\)</span> and a carrying capacity (based on the nutrients in the petri dish) of <span class="math inline">\(K=1,000,000\)</span>. We can solve the logistic growth model as a <a href="Separable Equations.html#">separable equation</a>:</p>
+<p><span class="math display">\[\frac{dP}{dt}=0.25P\left(1-\frac{P}{1,000,000}\right)\]</span>
+<span class="math display">\[\int\frac{1}{P(1-10^{-6}P)}\,dP=\int0.25\,dt\]</span>
+The left integral can be obtained using partial fraction decomposition
+<span class="math display">\[\int\frac{1}{P}+\frac{10^{-6}}{1-10^{-6}P}\,dP=\int0.25\,dt\]</span>
+<span class="math display">\[\ln P -\ln(1-10^{-6}P)=0.25t+C\]</span>
+In this case, we’re assuming <span class="math inline">\(P\)</span> is positive and that <span class="math inline">\(10^{-6}P\lt1\)</span> to eliminate the absolute value signs in the natural logs.</p>
+<p><span class="math display">\[\ln \frac{P}{1-10^{-6}P}=0.25t+C\]</span></p>
+<p><span class="math display">\[\frac{P}{1-10^{-6}P}=Ce^{0.25t}\]</span>
+<span class="math display">\[P=\frac{Ce^{0.25t}}{1+C10^{-6}e^{0.25t}}\]</span></p>
+<p>We can use initial conditions to find <span class="math inline">\(C\)</span>: <span class="math display">\[\ln 100 -\ln(1-10^{-6}\times100)=0+C\quad\to C=4.61\]</span></p>
+<p>The final growth model is: <span class="math display">\[P=\frac{4.61e^{0.25t}}{1+4.61\times 10^{-6}e^{0.25t}}\]</span></p>
+<p><a href="Project/Unit7.html">&lt;- Unit 7</a><br />
+<a href="First-Order Linear Models.html#">&lt;- First-Order Linear Models</a>|<a href="First-Order Systems of Equations Models.html#">First-Order Systems of Equations Models -&gt;</a></p>
+</body>
+</html>
