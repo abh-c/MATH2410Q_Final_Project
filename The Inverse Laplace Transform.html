@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>The Inverse Laplace Transform</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="UConn MATH 2410Q Final Project/UConn MATH 2410Q Project Unit 5.html#">&lt;- Unit 5</a><br />
+<a href="Definition of the Laplace Transform.html#">&lt;- Definition of the Laplace Transform</a>|<a href="Solving a First-Order IVP with the Laplace Transform.html#">Solving a First-Order IVP with the Laplace Transform -&gt;</a></p>
+<h1 id="the-inverse-laplace-transform">The Inverse Laplace Transform</h1>
+<p>The <strong>inverse Laplace transform</strong> for some function <span class="math inline">\(F(s)\)</span> is defined as: <span class="math display">\[\mathscr{L}^{-1}\{F(s)\}=f(t)\]</span>
+For a function <span class="math inline">\(F\)</span> for which an inverse transform <em>exists</em>, the inverse transform <span class="math inline">\(f\)</span> is also guaranteed to be <em>unique</em>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Being able to obtain the inverse Laplace transform <span class="math inline">\(f(t)\)</span> of a function <span class="math inline">\(F(s)\)</span> is important for solving differential equations and getting an answer in terms of <span class="math inline">\(t\)</span>.</p>
+<p>Obtaining the reverse Laplace transform of functions involves recognizing patterns and interpreting what they mean. It is usually helpful to have a table of Laplace transforms handy when doing inverse transforms.</p>
+<p><strong>Example</strong>: find the inverse Laplace transform of
+<span class="math display">\[F(s)=\frac{2}{2s+5}+\frac{4}{s^2+4}\]</span>
+The coefficients of these terms can be manipulated to get the proper forms of the transforms of an exponential (left) and sine (right):</p>
+<p><span class="math display">\[=\frac{1}{s+5/2}+2\frac{2}{s^2+4}\]</span>
+Now, we need to follow the pattern of the transform for an exponential function <span class="math inline">\(\mathscr{L}\{e^{at}\}=1/(s-a)\)</span> and sine <span class="math inline">\(\mathscr{L}\{\sin(kt)\}=k/(s^2+k^2)\)</span> to perform the inverse transform on both sides:
+<span class="math display">\[f(t)=e^{-\frac{5}{2}t}+2\sin{2t}\]</span></p>
+<p>Note that in some cases, you may need to algebraically manipulate <span class="math inline">\(F(s)\)</span> in order to preform the inverse transform, like with coefficient manipulation shown in the above example or with partial fraction decomposition.</p>
+<p><a href="UConn MATH 2410Q Final Project/UConn MATH 2410Q Project Unit 5.html#">&lt;- Unit 5</a><br />
+<a href="Definition of the Laplace Transform.html#">&lt;- Definition of the Laplace Transform</a>|<a href="Solving a First-Order IVP with the Laplace Transform.html#">Solving a First-Order IVP with the Laplace Transform -&gt;</a></p>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="https://www.youtube.com/watch?v=zModDQST30&amp;list=PLHXZ9OQGMqxcJXnLr08cyNaup4RDsbAl1&amp;index=2">3 Properties of Laplace Transforms: Linearity, Existence, and Inverses</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>

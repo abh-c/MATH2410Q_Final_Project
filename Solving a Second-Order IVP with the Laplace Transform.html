@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Solving a Second-Order IVP with the Laplace Transform</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="UConn MATH 2410Q Final Project/UConn MATH 2410Q Project Unit 5.html#">&lt;- Unit 5</a><br />
+<a href="Solving a First-Order IVP with the Laplace Transform.html#">&lt;- Solving a First-Order IVP with the Laplace Transform</a>|<a href="Special Situation – Derivatives of Transforms.html#">Special Situation – Derivatives of Transforms -&gt;</a></p>
+<h1 id="solving-a-second-order-ivp-with-the-laplace-transform">Solving a Second-Order IVP with the Laplace Transform</h1>
+<p>Using the <a href="Solving a First-Order IVP with the Laplace Transform.html#">Laplace transforms of derivatives of y</a>, we can also solve second order IVPs in the same way as first order IVPs.</p>
+<p><strong>Example</strong>: Solve <span class="math display">\[y&#39;&#39;-y=x \qquad y(0)=0, y&#39;(0)=0\]</span>
+First, take the Laplace transform of moth sides:<span class="math display">\[\mathscr{L}\{y&#39;&#39;\}-\mathscr{L}\{y\}=\mathscr{L}\{t\}\]</span>
+<span class="math display">\[s^2Y(s)-sy(0)-y&#39;(0)-Y(s)=\frac{1}{s^2}\]</span>
+Now solve for <span class="math inline">\(Y(s)\)</span> and substitute the initial conditions. In this case, the terms <span class="math inline">\(-sy(0)\)</span> and <span class="math inline">\(-y&#39;(0)\)</span> will cancel out to zero.</p>
+<p><span class="math display">\[Y(s) =\frac{1}{(s^2-1)(s^2)}\]</span>
+At this point, partial fraction decomposition is required to split this fraction into two terms. The result of this should be:
+<span class="math display">\[Y(s)=\frac{1}{s^2-1}+\frac{1}{s^2}\]</span>
+Now, we can perform <a href="the inverse Laplace transform.html#">the inverse Laplace transform</a> on both sides to obtain the solution:
+<span class="math display">\[\mathscr{L}^{-1}\{Y(s)\}=\mathscr{L}^{-1}\left\{\frac{1}{s^2-1}\right\}+\mathscr{L}^{-1}\left\{\frac{1}{s^2}\right\}\]</span>
+<span class="math display">\[y(t)=\sinh t+t\]</span>
+At this point, the IVP has been solved</p>
+<p><a href="UConn MATH 2410Q Final Project/UConn MATH 2410Q Project Unit 5.html#">&lt;- Unit 5</a><br />
+<a href="Solving a First-Order IVP with the Laplace Transform.html#">&lt;- Solving a First-Order IVP with the Laplace Transform</a>|<a href="Special Situation – Derivatives of Transforms.html#">Special Situation – Derivatives of Transforms -&gt;</a></p>
+</body>
+</html>

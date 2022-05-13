@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Initial-Value Problems</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="UConn MATH 2410Q Final Project/UConn MATH 2410Q Project Unit 5.html#">&lt;- Unit 5</a>|<a href="Definition of the Laplace Transform.html#">Definition of the Laplace Transform -&gt;</a></p>
+<h1 id="initial-value-problems">Initial-Value Problems</h1>
+<p>An <strong>Initial-Value Problem (IVP)</strong> is when an ODE and <strong>initial conditions</strong> are given to specify a particular solution curve. For an <span class="math inline">\(n\)</span>th order ODE, the <em>initial conditions</em> must specify specific values for all derivatives of <span class="math inline">\(y\)</span> up to and including the <span class="math inline">\(n-1\)</span>st derivative. It is only when enough initial conditions are given where the constants in the general solution can be solved for to obtain a specific solution curve. For example, for a second order ODE, values of <span class="math inline">\(y\)</span> and <span class="math inline">\(y&#39;\)</span> must be given for a solution to be found.</p>
+<p><strong>Example</strong>: solve <span class="math inline">\(y&#39;&#39;-y=0\qquad y(0)=1,\,\, y&#39;(0)=2\)</span></p>
+<p>This ODE is a <a href="homogeneous second-order Equations with Constant Coefficients.html#">homogeneous second-order equation with constant coefficients</a>, so it can be solved using an auxiliary equation. In this case, the equation is <span class="math inline">\(m^2-1=0\)</span> and the solutions are <span class="math inline">\(m=\{-1,+1\}\)</span>. Therefore, the general solution is: <span class="math display">\[y=c_1e^x+c_2e^{-x}\]</span>
+Now, using the initial conditions, the constant <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span> can be found. First, find <span class="math inline">\(y&#39;\)</span>: <span class="math display">\[y&#39;=c_1e^x-c_2e^{-x}\]</span>
+Now the initial conditions can be substituted into <span class="math inline">\(y\)</span> and <span class="math inline">\(y&#39;\)</span>:</p>
+<p><span class="math display">\[y(0)=1 \to \quad1=c_1+c_2\]</span>
+<span class="math display">\[y&#39;(0)=2 \to\quad 2=c_1-c_2\]</span>
+We have obtained a system of equations and can solve for the constants in a variety of ways. One way is to subtract the bottom equation from the top one to obtain <span class="math inline">\(-1=2c_2\)</span> and solve for <span class="math inline">\(c_2=-0.5\)</span> and then substitute that into one of the other equations to obtain <span class="math inline">\(c_1=1.5\)</span>.</p>
+<p>Now that the constants are solved, we can obtain the solution to the IVP: <span class="math display">\[y=1.5e^x-0.5e^{-x}\]</span>
+Higher order IVPs can be solved similarly with larger systems of equations</p>
+<p><a href="UConn MATH 2410Q Final Project/UConn MATH 2410Q Project Unit 5.html#">&lt;- Unit 5</a>|<a href="Definition of the Laplace Transform.html#">Definition of the Laplace Transform -&gt;</a></p>
+</body>
+</html>
