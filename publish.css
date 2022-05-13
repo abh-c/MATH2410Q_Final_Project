@@ -813,3 +813,7 @@ div.hanging-indent {
 ul.task-list {
   list-style: none;
 }
+
+hr {
+  background-color: var(--gray-1);
+}

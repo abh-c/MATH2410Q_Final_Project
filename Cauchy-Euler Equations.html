@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Cauchy-Euler Equations</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="Project/Unit3.html">&lt;- Unit 3</a><br />
+<a href="Variation of Parameters.html#">&lt;- Variation of Parameters</a>|<a href="Extension of Ideas to Higher-Order Equations.html#">Extension of Ideas to Higher-Order Equations -&gt;</a></p>
+<h1 id="cauchy-euler-equations">Cauchy-Euler Equations</h1>
+<p>Cauchy-Euler Equations are linear ODEs of the form: <span class="math display">\[ax^2y&#39;&#39; + bxy&#39;+cy = g(x)\]</span>
+For Cauchy-Euler equations, <span class="math inline">\(y_c\)</span> will be of the form <span class="math inline">\(x^m\)</span> instead of <span class="math inline">\(e^{mx}\)</span> like in equations with <a href="Homogeneous Second-Order Equations with Constant Coefficients.html#">constant coefficients</a>. Substituting this into the homogeneous equation results in:</p>
+<p><span class="math display">\[x^m(am^2+(b-a)m+c) = 0\]</span>
+To make things simpler, we can assume <span class="math inline">\(x \gt 0\)</span> to get the auxiliary equation <span class="math inline">\(am^2+(b-a)m+c = 0\)</span>.</p>
+<p>Solutions <em>could</em> be defined at <span class="math inline">\(x=0\)</span>, but are <em>guaranteed</em> to be defined at <span class="math inline">\(x \gt 0\)</span>. If <span class="math inline">\(x\)</span> is not guaranteed to be positive by the problem, then substitute all instances of <span class="math inline">\(x\)</span> with <span class="math inline">\(\lvert x\rvert\)</span>.</p>
+<p>Depending on the number and type of solutions (indicated by the discriminant), there are <em>3 solution cases:</em></p>
+<h4 id="distinct-real-roots">1. Distinct Real Roots</h4>
+<p>If <span class="math inline">\(\sqrt{b^2-4ac} &gt; 0\)</span>, there are 2 distinct real roots <span class="math inline">\(m_1\)</span> and <span class="math inline">\(m_2\)</span>.</p>
+<p><span class="math display">\[y_c = c_1x^{m_1} + c_2x^{m_2}\]</span></p>
+<h4 id="repeated-root">2. Repeated Root</h4>
+<p>If <span class="math inline">\(\sqrt{b^2-4ac} = 0\)</span>, there is 1 repeated root <span class="math inline">\(m\)</span>.
+<span class="math display">\[y_c = c_1x^{m} + c_2x^{m}\ln{x}\]</span>
+In order to make the second solution <a href="Linear Operators and Linear Independence.html#">linearly independent</a> from the first, it is necessary to multiply by <span class="math inline">\(\ln x\)</span>. This is because because multiplying by just <span class="math inline">\(x\)</span> will work to create linear independence when solutions are of the form <span class="math inline">\(e^{mx}\)</span> but not when solutions are of the form <span class="math inline">\(x_m\)</span>.</p>
+<h4 id="pair-of-complex-roots">3. Pair of Complex Roots</h4>
+<p>If <span class="math inline">\(\sqrt{b^2-4ac} \lt 0\)</span>, there is a pair of complex roots <span class="math inline">\(m = \alpha \pm \beta i\)</span>. Using the fact that <span class="math inline">\(x^{\alpha + \beta i} = x^\alpha e^{(B\ln{x})i}\)</span> and Euler’s formula <span class="math inline">\(e^{i\theta} = \cos\theta + i\sin\theta\)</span>, one can obtain a solution form:</p>
+<p><span class="math display">\[y_c = c_1x^\alpha\cos(\beta\ln(x)) + c_2x^\alpha\sin(\beta\ln(x))\]</span></p>
+<p>After obtaining <span class="math inline">\(y_c\)</span>, to solve for <span class="math inline">\(y=y_c+y_p\)</span>, put the equation into the form <span class="math inline">\(y&#39;&#39;+P(x)y&#39;+Q(x)y = g(x)\)</span> and solve using <a href="Variation of Parameters.html#">variation of parameters</a>.</p>
+<p><strong>Example</strong>: Solve <span class="math display">\[x^2y&#39;&#39;-5xy&#39;+8y = x^5 \quad \text{assume} \; x \gt 0\]</span>
+The auxiliary equation for this Cauchy-Euler equation is <span class="math inline">\(m^2+(-5-1)m+8 = 0\)</span>. The solutions are <span class="math inline">\(m = 2, 4\)</span>, so <span class="math inline">\(y_c=c_1x^2+c_2x^4\)</span>.</p>
+<p>Next, find the Wronskian for <span class="math inline">\(y_1=x^2\)</span> and <span class="math inline">\(y_2=x^4\)</span>:</p>
+<p><span class="math display">\[W(x^2,x^4) = \begin{vmatrix} x^2 &amp; x^4 \\ 2x &amp; 4x^3 \end{vmatrix} = 4x^5-2x^5=2x^5\]</span>
+Next, to find <span class="math inline">\(g(x)\)</span>, the ODE must be put into the form <span class="math inline">\(y&#39;&#39;+P(x)y&#39;+Q(x)y=g(x)\)</span>. In this case, this can be done by dividing through by <span class="math inline">\(x^2\)</span>:</p>
+<p><span class="math display">\[y&#39;&#39;-\frac{5}{x}y&#39;+\frac{8}{x^2}y=x^3\]</span>
+In this form, it is clear that <span class="math inline">\(g(x)=x^3\)</span>. Now, using the variation of parameters equations, <span class="math inline">\(u_1\)</span> and <span class="math inline">\(u_2\)</span> can be found:</p>
+<p><span class="math display">\[u_1 = -\int \frac{x^4 x^3}{2x^5} \, dx = -\int \frac{1}{2}x^2 \, dx = -\frac{1}{6}x^3 + c_1\]</span>
+<span class="math display">\[u_2 = +\int \frac{x^2 x^3}{2x^5} \, dx = \int \frac{1}{2} \, dx = \frac{1}{2}x + c_2\]</span></p>
+<p>Finally, these expressions can be plugged into <span class="math inline">\(y=u_1y_1+u_2y_2\)</span> to obtain the solution:</p>
+<p><span class="math display">\[y = \left(-\frac{1}{6}x^3 + c_1\right)x^2+\left(\frac{1}{2}x + c_2\right)x^4\]</span>
+<span class="math display">\[y = c_1x^2+c_2x^4+\frac{1}{3}x^5\]</span>
+In this case, <span class="math inline">\(y_p = \frac{1}{3}x^5\)</span>.</p>
+<p><a href="Project/Unit3.html">&lt;- Unit 3</a><br />
+<a href="Variation of Parameters.html#">&lt;- Variation of Parameters</a>|<a href="Extension of Ideas to Higher-Order Equations.html#">Extension of Ideas to Higher-Order Equations -&gt;</a></p>
+</body>
+</html>

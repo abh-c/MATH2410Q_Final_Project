@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Linear Operators and Linear Independence</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="Project/Unit3.html">&lt;- Unit 3</a>|<a href="Homogeneous Second-Order Equations with Constant Coefficients.html#">Homogeneous Second-Order Equations with Constant Coefficients -&gt;</a></p>
+<h1 id="linear-operators-and-linear-independence">Linear Operators and Linear Independence</h1>
+<p><strong>Linear operators</strong> are functions that perform some kind of transformation on input functions and have certain properties. For example, <span class="math inline">\(L[f(x)+g(x)] = L[f(x)] + L[g(x)]\)</span>, and <span class="math inline">\(L[Cf(x)] = CL[f(x)]\)</span>. Derivatives and integrals have these linear properties.</p>
+<p>One example of a linear operator is <span class="math inline">\(L\)</span>, which can be used to represent a generic linear equation with less text: <span class="math display">\[a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y&#39;+a_0(x) y = L[y] = 0\]</span>
+Functions are said to be <strong>linearly independent</strong> if, for some interval, the an expression <em>cannot be written</em> such that a combination of the functions equals 0:</p>
+<p><span class="math display">\[c_1f_1(x)+c_2f_2(x)+c_3f_3(x) + \cdots + c_nf_n(x) = 0\]</span></p>
+<p>where one or more of the constants <span class="math inline">\(\ne\)</span> 0.</p>
+<p>For example, the functions <span class="math inline">\(x\)</span> and <span class="math inline">\(2x\)</span> would be <em>linearly dependent</em> because one is a multiple of the other (<span class="math inline">\(-2x+2x=0\)</span>). Functions like <span class="math inline">\(x\)</span> and <span class="math inline">\(x^2\)</span> are linearly dependent because there is no constant multiple combination that will add up to 0.</p>
+<p>Linear independence relates to the <strong>fundamental set of solutions</strong> to a differential equation. If a set of <em>linearly independent</em> functions are solutions to a differential equation, then a constant multiple combination of those functions make up the fundamental set of solutions for an <span class="math inline">\(n\)</span>th order differential equation:</p>
+<p><span class="math display">\[y = c_1y_1 + \cdots + c_ny_n\]</span></p>
+<p>All of these solutions are unique and can be combined to create new solutions.</p>
+<h2 id="the-wronskian">The Wronskian</h2>
+<p>One way to check for linear independence is the <strong>Wronskian</strong>, which is defined as follows: <span class="math display">\[W(f_1,f_2,\ldots, f_n) = \begin{vmatrix} f_1 &amp; f_2 &amp; \cdots &amp; f_n \\ f_1&#39; &amp; f_2&#39; &amp; \cdots &amp; f_n&#39; \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ f_1^{(n-1)} &amp; f_2^{(n-1)} &amp; \cdots &amp; f_n^{(n-1)} \end{vmatrix}\]</span>These functions are linearly independent on some interval <em>if and only if</em> the Wronskian <span class="math inline">\(\ne\)</span> 0 on that interval.</p>
+<p><a href="Project/Unit3.html">&lt;- Unit 3</a>|<a href="Homogeneous Second-Order Equations with Constant Coefficients.html#">Homogeneous Second-Order Equations with Constant Coefficients -&gt;</a></p>
+</body>
+</html>

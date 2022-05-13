@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>The Method of Undetermined Coefficients</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="Project/Unit3.html">&lt;- Unit 3</a><br />
+<a href="Homogeneous Second-Order Equations with Constant Coefficients.html#">&lt;- Homogeneous Second-Order Equations with Constant Coefficients</a>|<a href="Variation of Parameters.html#">Variation of Parameters -&gt;</a></p>
+<h1 id="the-method-of-undetermined-coefficients">The Method of Undetermined Coefficients</h1>
+<p>The method of undetermined coefficients will be used to solve second order non-homogeneous linear equations with constant coefficients: <span class="math inline">\(ay&#39;&#39; + by&#39; + cy = g(x)\)</span>. <span class="math inline">\(g(x)\)</span> must also be some sum or product of exponential, polynomial, sine, and cosine functions—functions with a finite list of derivatives.</p>
+<p>The general solution will take the form <span class="math inline">\(y = y_c+y_p\)</span>. <span class="math inline">\(y_c\)</span> is the “complementary” solution, which is obtained by making the equation homogeneous (setting <span class="math inline">\(g(x) = 0\)</span>), and solving the <a href="Homogeneous Second-Order Equations with Constant Coefficients.html#">homogeneous equation with constant coefficients</a>. <span class="math inline">\(y_p\)</span> is the “particular solution” whose form depends on which functions make up <span class="math inline">\(g(x)\)</span>.</p>
+<p>In order to solve for <span class="math inline">\(y_p\)</span>, one must assume its form to be the “general” form of the types of functions within <span class="math inline">\(g(x)\)</span>. For example:
+- if <span class="math inline">\(g(x) = 13x\)</span>, then <span class="math inline">\(y_p\)</span> takes the form <span class="math inline">\(Ax+B\)</span>, a generic linear polynomial
+- if <span class="math inline">\(g(x) = 123x^2+1\)</span>, then <span class="math inline">\(y_p\)</span> takes the form <span class="math inline">\(Ax^2+Bx+C\)</span>, a generic quadratic
+- if <span class="math inline">\(g(x) = \cos10x\)</span> or <span class="math inline">\(\sin10x\)</span>, then <span class="math inline">\(y_p\)</span> takes the form <span class="math inline">\(A\cos10x+B\cos10x\)</span>, a generic sinusoid
+- if <span class="math inline">\(g(x) = e^{-50x}\)</span>, then <span class="math inline">\(y_p\)</span> takes the form <span class="math inline">\(Ae^{-50x}\)</span>, a generic exponential of a specific power</p>
+<p>Combinations of these functions work similarly. For example, if <span class="math inline">\(g(x) = xe^x\)</span>, then <span class="math inline">\(y_p\)</span> takes the form <span class="math inline">\((Ax+B)e^x\)</span>. In this case the exponential constant can be distributed and assimilated into <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p>
+<p>Once the form of <span class="math inline">\(y_p\)</span> is obtained, it should be “matched” with the terms of <span class="math inline">\(y_c\)</span>. If some terms match, then <span class="math inline">\(x\)</span> is multiplied with the corresponding <span class="math inline">\(y_p\)</span> term. The purpose of this process, similar to finding solutions when the <a href="Homogeneous Second-Order Equations with Constant Coefficients.html#repeated-roots">auxiliary equation has double roots</a>, is to create a solution for <span class="math inline">\(y_p\)</span> that is <a href="Linear Operators and Linear Independence.html#">linearly independent</a> from <span class="math inline">\(y_c\)</span>.</p>
+<p>For example, if <span class="math inline">\(y_c = c_1x\)</span> and <span class="math inline">\(y_p\)</span> is of the form <span class="math inline">\((Ax+B) + Ce^x\)</span>, then the <span class="math inline">\(Ax\)</span> term “matches” the form of <span class="math inline">\(c_1x\)</span>. You could then multiply the first term by <span class="math inline">\(x\)</span> to get <span class="math inline">\(x(Ax+B) + Ce^x\)</span>. Now the new <span class="math inline">\(Ax^2\)</span> term is linearly independent of the <span class="math inline">\(c_1x\)</span> term. However, when you distribute, you get a <span class="math inline">\(Bx\)</span> term, which is still the same form as <span class="math inline">\(c_1x\)</span>. You have to multiply by <span class="math inline">\(x\)</span> again to get <span class="math inline">\(x^2(Ax+B) + Ce^x\)</span>. Now none of the terms match the form of any term in <span class="math inline">\(y_c\)</span>, so the solution form has been fixed.</p>
+<p>After finding the form of <span class="math inline">\(y_p\)</span>, final step is to determine expressions for <span class="math inline">\(y_p&#39;\)</span> and <span class="math inline">\(y_p&#39;&#39;\)</span> and plug them into the ODE. Solve for the constants to obtain the specific solution, then write the final solution as <span class="math inline">\(y = y_c+ y_p\)</span>.</p>
+<p><strong>Example</strong>: Solve <span class="math display">\[y&#39;&#39;-4y&#39;+4y=10e^{2x}\]</span>
+The first step is to solve for <span class="math inline">\(y_c\)</span>. The homogeneous equation is <span class="math inline">\(y&#39;&#39;-4y&#39;+4y=0\)</span>, so the auxiliary equation is <span class="math inline">\(m^2-4m+4=0\)</span>. The solution in this case is a double root <span class="math inline">\(m=2\)</span>, so: <span class="math display">\[y_c=c_1e^{2x} +c_2xe^{2x}\]</span></p>
+<p>The next step is to find the form of <span class="math inline">\(y_p\)</span> depending on <span class="math inline">\(g(x) = 10e^{2x}\)</span>. In this case, it should be some exponential with an exponent of <span class="math inline">\(2x\)</span>, so we can say that: <span class="math display">\[y_p = Ae^{2x}\]</span></p>
+<p>After this, we can “match” the terms in <span class="math inline">\(y_p\)</span> and <span class="math inline">\(y_c\)</span> to make sure <span class="math inline">\(y_p\)</span> is a linearly independent solution. <span class="math inline">\(Ae^{2x}\)</span> is of the same form as <span class="math inline">\(c_1e^{2x}\)</span>, so we can multiply <span class="math inline">\(y_p\)</span> by <span class="math inline">\(x\)</span> to get <span class="math inline">\(Axe^{2x}\)</span>. However, <span class="math inline">\(Axe^{2x}\)</span> is of the same form as <span class="math inline">\(c_2e^{2x}\)</span>, so we can increase the power of the <span class="math inline">\(x\)</span> to get <span class="math inline">\(Ax^2e^{2x}\)</span>. Now <span class="math inline">\(y_p\)</span> is in a form that is linearly independent of any term in <span class="math inline">\(y_c\)</span>. After this, we can find the first and second derivatives of <span class="math inline">\(y_p\)</span>:</p>
+<p><span class="math display">\[y_p = Ax^2e^{2x}\]</span></p>
+<p><span class="math display">\[y_p&#39; = 2Axe^{2x}+2Ax^2e^{2x}\]</span></p>
+<p><span class="math display">\[y_p&#39;&#39; = 2Ae^{2x}+8Axe^{2x}+4Ax^2e^{2x}\]</span></p>
+<p>Now we can plug these values into the ODE as a solution to solve for <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[2Ae^{2x}+8Axe^{2x}+4Ax^2e^{2x}-4(2Axe^{2x}+2Ax^2e^{2x})+4Ax^2e^{2x} = 10e^{2x}\]</span>
+<span class="math display">\[2Ae^{2x} = 10e^{2x}\]</span></p>
+<p><span class="math display">\[2A = 10 \to A = 5 \to y_p = 5x^2e^{2x}\]</span>
+Notice how most of the terms cancelled out and made finding <span class="math inline">\(A\)</span> relatively simple. <em>If this does not occur, check if you wrote <span class="math inline">\(y_p\)</span> in the correct form</em>, or if you made an algebraic error.</p>
+<p>Now we can write the solution <span class="math display">\[y = y_c+y_p = c_1e^{2x} +c_2xe^{2x}+5x^2e^{2x}\]</span></p>
+<p><a href="Project/Unit3.html">&lt;- Unit 3</a><br />
+<a href="Homogeneous Second-Order Equations with Constant Coefficients.html#">&lt;- Homogeneous Second-Order Equations with Constant Coefficients</a>|<a href="Variation of Parameters.html#">Variation of Parameters -&gt;</a></p>
+</body>
+</html>

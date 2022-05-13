@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Variation of Parameters</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="Project/Unit3.html">&lt;- Unit 3</a><br />
+<a href="The Method of Undetermined Coefficients.html#">&lt;- The Method of Undetermined Coefficients</a>|<a href="Cauchy-Euler Equations.html#">Cauchy-Euler Equations -&gt;</a></p>
+<h1 id="variation-of-parameters">Variation of Parameters</h1>
+<p>Variation of parameters is a solution technique that can solve second-order linear ODEs that do not have constant coefficients <span class="math display">\[y&#39;&#39;+P(x)y&#39;+Q(x)y = g(x)\]</span>
+as long as it is possible to obtain <span class="math inline">\(y_c=c_1y_1+c_2y_2\)</span>.</p>
+<p>Using this method, a solution can be found by using the equations: <span class="math display">\[y=u_1y_1+u_2y_2\]</span>
+<span class="math display">\[u_1=-\int\frac{y_2(x)g(x)}{W(x)}dx \qquad u_2=+\int\frac{y_1(x)g(x)}{W(x)}dx\]</span>
+<span class="math inline">\(W(x)\)</span> is the <a href="Linear Operators and Linear Independence.html#the-wronskian">Wronskian</a> of <span class="math inline">\(y_1\)</span> and <span class="math inline">\(y_2\)</span>.</p>
+<p>This method is often longer than using other approaches in this section, but it is sometimes necessary to use it, either when the <span class="math inline">\(y\)</span> terms are multiplied by functions instead of constants or when <span class="math inline">\(g(x)\)</span> is not made up of types of functions with a finite number of derivatives (e.g. polynomials, sine, cosine, exponentials).</p>
+<p><strong>Example</strong>: Solve <span class="math display">\[y&#39;&#39;+y=\csc x\]</span>
+First, solve for <span class="math inline">\(y_c\)</span> using the <a href="Homogeneous Second-Order Equations with Constant Coefficients.html#">auxiliary equation</a> <span class="math inline">\(m^2+m=0\)</span>. The solution is <span class="math inline">\(0\pm1i\)</span>, so <span class="math inline">\(y_c=c_1\cos x + c_2 \sin x\)</span>.</p>
+<p>Next, solve for the Wronskian using the solution functions in <span class="math inline">\(y_c\)</span>: <span class="math inline">\(\cos x\)</span> and <span class="math inline">\(\sin x\)</span>.</p>
+<p><span class="math display">\[W(\cos x, \sin x) = \begin{vmatrix} \cos x &amp; \sin x \\ -\sin x &amp; \cos x \end{vmatrix} = \cos^2x - (-\sin^2 x) = 1\]</span>
+Note: here, the trigonometric identity <span class="math inline">\(\sin^2x+\cos^2x=1\)</span> is used to solve the Wronskian.</p>
+<p>Next, solve for <span class="math inline">\(u_1\)</span> and <span class="math inline">\(u_2\)</span>. In this case, <span class="math inline">\(\cos x\)</span> was used as <span class="math inline">\(y_1\)</span> and <span class="math inline">\(\sin x\)</span> was used as <span class="math inline">\(y_2\)</span>. Make sure functions are chosen such that they are consistent with the variation of parameters equations.</p>
+<p><span class="math display">\[u_1 = -\int \frac{\sin x \csc x}{1} \, dx = -\int \frac{\sin x}{\sin x} \, dx = -\int 1 \, dx = -x + c_1\]</span></p>
+<p><span class="math display">\[u_2 = +\int \frac{\cos x \csc x}{1} \, dx = \int\frac{\cos x}{\sin x} \, dx= \ln\lvert \sin x\rvert + c_2\]</span>
+Next, plug in <span class="math inline">\(u_1\)</span> and <span class="math inline">\(u_2\)</span> into the solution equation <span class="math inline">\(y = u_1y_1+u_2y_2\)</span>:</p>
+<p><span class="math display">\[y = (-x+c_1)\cos x + (\ln\lvert \sin x\rvert + c_2)\sin x\]</span>
+<span class="math display">\[y= c_1\cos x+c_2\sin x - x\cos x + \ln\lvert \sin x\rvert\sin x\]</span>
+This is the general solution. In this case, <span class="math inline">\(y_p = - x\cos x + \ln\lvert \sin x\rvert\sin x\)</span>.</p>
+<p><a href="Project/Unit3.html">&lt;- Unit 3</a><br />
+<a href="The Method of Undetermined Coefficients.html#">&lt;- The Method of Undetermined Coefficients</a>|<a href="Cauchy-Euler Equations.html#">Cauchy-Euler Equations -&gt;</a></p>
+</body>
+</html>

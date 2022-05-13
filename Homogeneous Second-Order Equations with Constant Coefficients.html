@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Homogeneous Second-Order Equations with Constant Coefficients</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="publish.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="Project/Unit3.html">&lt;- Unit 3</a><br />
+<a href="Linear Operators and Linear Independence.html#">&lt;- Linear Operators and Linear Independence</a>|<a href="The Method of Undetermined Coefficients.html#">The Method of Undetermined Coefficients -&gt;</a></p>
+<h1 id="homogeneous-second-order-equations-with-constant-coefficients">Homogeneous Second-Order Equations with Constant Coefficients</h1>
+<p>This section deals with solution techniques for homogeneous linear ODEs. In this case, <em>homogeneous</em> refers to a differential equation that is set equal to 0. All ODEs in this section will have constant coefficients multiplied by the <span class="math inline">\(y\)</span> terms, so there are no instances of the independent <span class="math inline">\(x\)</span> variable. Generally they are of the form:</p>
+<p><span class="math display">\[ay&#39;&#39; + by&#39; + cy = 0\]</span></p>
+<p>The solutions in these cases will be of the form <span class="math inline">\(y = e^{mx}\)</span>. Even more generally the solution form should be <span class="math inline">\(y=Ae^{mx}\)</span> but the <span class="math inline">\(A\)</span> will cancel out because the equation is homogeneous. When plugged into the equation, this results in: <span class="math display">\[e^{mx}(am^2+bm+c)=0\]</span>
+The <span class="math inline">\(e^{mx}\)</span> term never equals 0, so the <span class="math inline">\(am^2+bm+c\)</span> term—usually called the <strong>auxiliary equation</strong>—must equal zero. This fact can be used to solve for <span class="math inline">\(m\)</span> values in the solutions. There are <em>three possible cases</em> depending on the value of the determinant of the auxiliary equation <span class="math inline">\(\sqrt{b^2-4ac}\)</span>. ^e3bcf0</p>
+<h4 id="distinct-real-roots">1. Distinct Real Roots</h4>
+<p>If <span class="math inline">\(b^2-4ac \gt 0\)</span>, there are 2 unique real roots. The two solutions are <span class="math inline">\(e^{m_1x}\)</span> and <span class="math inline">\(e^{m_2x}\)</span>, and the general solution is <span class="math inline">\(y = c_1e^{m_1x} + c_2e^{m_2x}\)</span>. These roots will be <a href="Linear Operators and Linear Independence.html#">linearly independent</a>.</p>
+<h4 id="repeated-roots">2. Repeated Roots</h4>
+<p id="445aad"></p>
+<p>If <span class="math inline">\(b^2-4ac = 0\)</span> there is 1 real double root. In this case, to make the second solution linearly independent (through reduction of order), an <span class="math inline">\(x\)</span> term is multiplied with the second solution: <span class="math inline">\(y = c_1e^{mx} + c_2xe^{mx}\)</span>. For higher order equations with triple or greater roots, the power of the <span class="math inline">\(x\)</span> term is increased for each additional term. It would be <span class="math inline">\(y = c_1e^{mx} + c_2xe^{mx} + c_3x^2e^{mx}\)</span> for a triple root, for example.</p><p id="bab2b8"></p>
+<h4 id="pair-of-complex-roots">3. Pair of Complex Roots</h4>
+<p>If <span class="math inline">\(b^2-4ac \lt 0\)</span> there are 2 complementary complex roots <span class="math inline">\(m = \alpha \pm \beta i\)</span>. Using Euler’s formula, one can derive the general solution form for this case: <span class="math inline">\(y = c_1e^{\alpha x}\cos(\beta x) + c_2e^{\alpha x}\sin(\beta x)\)</span></p>
+<p><strong>Example 1:</strong> Solve <span class="math display">\[y&#39;&#39;-3y&#39;-10y = 0\]</span>
+The auxiliary equation is <span class="math inline">\(m^2-3m-10 = 0\)</span>, so the roots are <span class="math inline">\(2\)</span> and <span class="math inline">\(-5\)</span>, and the general solution is <span class="math inline">\(y = c_1e^{2x} + c_2e^{-5x}\)</span>.</p>
+<p><strong>Example 2:</strong> Solve <span class="math display">\[4y&#39;&#39;-4y&#39;+1 = 0\]</span></p>
+<p>The auxiliary equation is <span class="math inline">\(4m^2-4m+1 = 0\)</span>, so there is a single double root of <span class="math inline">\(1/2\)</span>. The general solution is <span class="math inline">\(y = c_1e^{0.5x}+c_2xe^{0.5x}\)</span>.</p>
+<p><strong>Example 3:</strong> Solve <span class="math display">\[y&#39;&#39;+y&#39;+y = 0\]</span></p>
+<p>The auxiliary equation is <span class="math inline">\(m^2 + m+ 1 = 0\)</span>, so there are complex roots <span class="math inline">\(-\frac{1}{2} \pm \frac{\sqrt3}{2}i\)</span>. The general solution is <span class="math inline">\(y = c_1e^{-\frac{1}{2} x}\cos(\frac{\sqrt3}{2} x) + c_2e^{-\frac{1}{2} x}\sin(\frac{\sqrt3}{2} x)\)</span>.</p>
+<p><a href="Project/Unit3.html">&lt;- Unit 3</a><br />
+<a href="Linear Operators and Linear Independence.html#">&lt;- Linear Operators and Linear Independence</a>|<a href="The Method of Undetermined Coefficients.html#">The Method of Undetermined Coefficients -&gt;</a></p>
+</body>
+</html>
